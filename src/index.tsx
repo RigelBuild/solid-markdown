@@ -4,9 +4,10 @@ import {
 	type Component,
 	createMemo,
 	createRenderEffect,
-	mergeProps,
+	merge,
+	createStore,
+	reconcile,
 } from "solid-js";
-import { createStore, reconcile } from "solid-js/store";
 import { html } from "property-information";
 import { type PluggableList, unified } from "unified";
 import { VFile } from "vfile";
@@ -58,7 +59,7 @@ const defaults: SolidMarkdownOptions = {
 export const SolidMarkdown: Component<Partial<SolidMarkdownOptions>> = (
 	opts,
 ) => {
-	const options: SolidMarkdownOptions = mergeProps(defaults, opts);
+	const options: SolidMarkdownOptions = merge(defaults, opts);
 	const [node, setNode] = createStore<Root>({ type: "root", children: [] });
 
 	const generateNode = createMemo(() => {
@@ -90,9 +91,12 @@ export const SolidMarkdown: Component<Partial<SolidMarkdownOptions>> = (
 	});
 
 	if (options.renderingStrategy === "reconcile") {
-		createRenderEffect(() => {
-			setNode(reconcile(generateNode()));
-		});
+		createRenderEffect(
+			() => generateNode(),
+			(root) => {
+				setNode(reconcile(root));
+			},
+		);
 	}
 
 	return (

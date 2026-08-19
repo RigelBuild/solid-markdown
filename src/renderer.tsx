@@ -2,7 +2,7 @@ import { type Component, For, Match, Switch, createMemo, Show } from "solid-js";
 import type { Context, SolidMarkdownNames } from "./types";
 import type { Root, Element, Text } from "hast";
 import { svg } from "property-information";
-import { Dynamic } from "solid-js/web";
+import { Dynamic } from "@solidjs/web";
 import {
 	addProperty,
 	getInputElement,
