@@ -1,13 +1,13 @@
-import { type Component, For, Match, Switch, createMemo, Show } from "solid-js";
-import type { Context, SolidMarkdownNames } from "./types";
-import type { Root, Element, Text } from "hast";
+import type { Element, Root, Text } from "hast";
 import { svg } from "property-information";
+import { type Component, For, Match, Show, Switch, createMemo } from "solid-js";
 import { Dynamic } from "solid-js/web";
+import type { Context, SolidMarkdownNames } from "./types";
 import {
 	addProperty,
-	getInputElement,
-	getElementsBeforeCount,
 	flattenPosition,
+	getElementsBeforeCount,
+	getInputElement,
 } from "./utils";
 const own = {}.hasOwnProperty;
 

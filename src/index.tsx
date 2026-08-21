@@ -1,3 +1,4 @@
+import { html } from "property-information";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import {
@@ -7,14 +8,13 @@ import {
 	mergeProps,
 } from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
-import { html } from "property-information";
 import { type PluggableList, unified } from "unified";
 import { VFile } from "vfile";
 import type { Options as TransformOptions } from "./types";
 
+import type { Root } from "hast";
 import rehypeFilter, { type Options as FilterOptions } from "./rehype-filter";
 import { MarkdownNode, MarkdownRoot } from "./renderer";
-import type { Root } from "hast";
 
 type CoreOptions = {
 	children: string;

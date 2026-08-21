@@ -1,162 +1,147 @@
 {
-  "name": "solid-markdown",
-  "version": "2.1.1",
-  "description": "Markdown renderer for solid-js",
-  "license": "MIT",
-  "keywords": [
-    "remark",
-    "unified",
-    "markdown",
-    "commonmark",
-    "gfm",
-    "ast",
-    "solid",
-    "solid-js",
-    "solid-js-component",
-    "component"
-  ],
-  "author": "Andi Rosca <andi23rosca@gmail.com>",
-  "contributors": [
-    {
-      "name": "Andi Rosca",
-      "url": "https://github.com/andi23rosca"
-    },
-    {
-      "name": "High1",
-      "url": "https://github.com/high1"
-    },
-    {
-      "name": "Patrick Heneise",
-      "url": "https://github.com/patrickheneise"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andi23rosca/solid-markdown.git"
-  },
-  "homepage": "https://github.com/andi23rosca/solid-markdown#readme",
-  "bugs": {
-    "url": "https://github.com/andi23rosca/solid-markdown/issues"
-  },
-  "files": [
-    "dist"
-  ],
-  "private": false,
-  "sideEffects": false,
-  "type": "module",
-  "main": "./dist/server.js",
-  "module": "./dist/server.js",
-  "types": "./dist/index.d.ts",
-  "browser": {
-    "./dist/server.js": "./dist/index.js"
-  },
-  "exports": {
-    "worker": {
-      "solid": "./dist/server.jsx",
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/server.js"
-      }
-    },
-    "browser": {
-      "solid": {
-        "development": "./dist/dev.jsx",
-        "import": "./dist/index.jsx"
-      },
-      "development": {
-        "import": {
-          "types": "./dist/index.d.ts",
-          "default": "./dist/dev.js"
-        }
-      },
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      }
-    },
-    "deno": {
-      "solid": "./dist/server.jsx",
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/server.js"
-      }
-    },
-    "node": {
-      "solid": "./dist/server.jsx",
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/server.js"
-      }
-    },
-    "solid": {
-      "development": "./dist/dev.jsx",
-      "import": "./dist/index.jsx"
-    },
-    "development": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/dev.js"
-      }
-    },
-    "import": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
-  "typesVersions": {},
-  "scripts": {
-    "dev": "vite serve dev",
-    "build": "tsup",
-    "test": "concurrently pnpm:test:*",
-    "test:client": "vitest",
-    "test:ssr": "pnpm run test:client --mode ssr",
-    "prepublishOnly": "pnpm build",
-    "format": "prettier --ignore-path .gitignore -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
-    "lint": "concurrently pnpm:lint:*",
-    "lint:code": "eslint --ignore-path .gitignore --max-warnings 0 src/**/*.{js,ts,tsx,jsx}",
-    "lint:types": "tsc --noEmit",
-    "update-deps": "pnpm up -Li"
-  },
-  "dependencies": {
-    "comma-separated-tokens": "^2.0.3",
-    "property-information": "^6.5.0",
-    "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.1.2",
-    "space-separated-tokens": "^2.0.2",
-    "style-to-object": "^0.3.0",
-    "unified": "^11.0.5",
-    "unist-util-visit": "^4.1.2",
-    "vfile": "^6.0.3"
-  },
-  "peerDependencies": {
-    "solid-js": "^1.6.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@types/hast": "^2.3.10",
-    "@types/unist": "^3.0.3",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "concurrently": "^8.2.2",
-    "esbuild": "^0.18.20",
-    "esbuild-plugin-solid": "^0.5.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-no-only-tests": "^3.3.0",
-    "jsdom": "^22.1.0",
-    "prettier": "3.0.0",
-    "remark-gfm": "^4.0.1",
-    "solid-js": "^1.9.10",
-    "tsup": "^8.5.1",
-    "tsup-preset-solid": "^2.2.0",
-    "typescript": "^5.9.3",
-    "vite": "^7.2.4",
-    "vite-plugin-solid": "^2.11.10",
-    "vitest": "^0.33.0"
-  },
-  "packageManager": "pnpm@9.15.9",
-  "engines": {
-    "node": ">=18",
-    "pnpm": ">=9.15.9"
-  }
+	"name": "solid-markdown",
+	"version": "2.1.1",
+	"description": "Markdown renderer for solid-js",
+	"license": "MIT",
+	"keywords": [
+		"remark",
+		"unified",
+		"markdown",
+		"commonmark",
+		"gfm",
+		"ast",
+		"solid",
+		"solid-js",
+		"solid-js-component",
+		"component"
+	],
+	"author": "Andi Rosca <andi23rosca@gmail.com>",
+	"contributors": [
+		{
+			"name": "Andi Rosca",
+			"url": "https://github.com/andi23rosca"
+		},
+		{
+			"name": "High1",
+			"url": "https://github.com/high1"
+		},
+		{
+			"name": "Patrick Heneise",
+			"url": "https://github.com/patrickheneise"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/andi23rosca/solid-markdown.git"
+	},
+	"homepage": "https://github.com/andi23rosca/solid-markdown#readme",
+	"bugs": {
+		"url": "https://github.com/andi23rosca/solid-markdown/issues"
+	},
+	"files": [
+		"dist"
+	],
+	"private": false,
+	"sideEffects": false,
+	"type": "module",
+	"main": "./dist/server.js",
+	"module": "./dist/server.js",
+	"types": "./dist/index.d.ts",
+	"browser": {
+		"./dist/server.js": "./dist/index.js"
+	},
+	"exports": {
+		"worker": {
+			"solid": "./dist/server.jsx",
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/server.js"
+			}
+		},
+		"browser": {
+			"solid": {
+				"development": "./dist/dev.jsx",
+				"import": "./dist/index.jsx"
+			},
+			"development": {
+				"import": {
+					"types": "./dist/index.d.ts",
+					"default": "./dist/dev.js"
+				}
+			},
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+		},
+		"deno": {
+			"solid": "./dist/server.jsx",
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/server.js"
+			}
+		},
+		"node": {
+			"solid": "./dist/server.jsx",
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/server.js"
+			}
+		},
+		"solid": {
+			"development": "./dist/dev.jsx",
+			"import": "./dist/index.jsx"
+		},
+		"development": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/dev.js"
+			}
+		},
+		"import": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"typesVersions": {},
+	"scripts": {
+		"dev": "vite serve dev",
+		"build": "tsup",
+		"test": "bun test",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check .",
+		"format": "biome format --write ."
+	},
+	"dependencies": {
+		"comma-separated-tokens": "^2.0.3",
+		"property-information": "^6.5.0",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.2",
+		"space-separated-tokens": "^2.0.2",
+		"style-to-object": "^0.3.0",
+		"unified": "^11.0.5",
+		"unist-util-visit": "^4.1.2",
+		"vfile": "^6.0.3"
+	},
+	"peerDependencies": {
+		"solid-js": "^1.6.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/bun": "^1.4.0",
+		"@types/hast": "^2.3.10",
+		"@types/unist": "^3.0.3",
+		"esbuild": "^0.18.20",
+		"esbuild-plugin-solid": "^0.5.0",
+		"remark-gfm": "^4.0.1",
+		"solid-js": "^1.9.10",
+		"tsup": "^8.5.1",
+		"tsup-preset-solid": "^2.2.0",
+		"typescript": "^5.9.3",
+		"vite": "^7.2.4",
+		"vite-plugin-solid": "^2.11.10"
+	},
+	"engines": {
+		"node": ">=18"
+	}
 }
