@@ -1,5 +1,17 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.3.1/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"ignore": ["dist", "dev", "ssr-demo"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
 	"organizeImports": {
 		"enabled": true
 	},
@@ -8,5 +20,11 @@
 		"rules": {
 			"recommended": true
 		}
-	}
+	},
+	"overrides": [
+		{
+			"include": ["package.json"],
+			"formatter": { "enabled": false }
+		}
+	]
 }

@@ -1,5 +1,5 @@
 import { stringify as commas } from "comma-separated-tokens";
-import type { Root, Element } from "hast";
+import type { Element, Root } from "hast";
 import { find } from "property-information";
 import { stringify as spaces } from "space-separated-tokens";
 import type { Position } from "unist";
@@ -46,8 +46,7 @@ export function addProperty(
 	}
 
 	// Ignore nullish and `NaN` values.
-	// eslint-disable-next-line no-self-compare
-	// biome-ignore lint/suspicious/noSelfCompare: <explanation>
+	// biome-ignore lint/suspicious/noSelfCompare: result !== result is an intentional NaN check
 	if (result === null || result === undefined || result !== result) {
 		return;
 	}
