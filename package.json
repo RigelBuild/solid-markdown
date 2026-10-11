@@ -105,9 +105,10 @@
 		"dev": "vite serve dev",
 		"build": "bun run build.ts && bun run smoke",
 		"smoke": "bun run scripts/smoke-dist.ts",
-		"test": "bun run test:client && bun run test:ssr",
+		"test": "bun run test:client && bun run test:ssr && bun run test:release",
 		"test:client": "SOLID_GENERATE=dom bun --conditions=browser --conditions=development test test/client.test.tsx",
 		"test:ssr": "SOLID_GENERATE=ssr bun --conditions=development test test/server.test.tsx",
+		"test:release": "bun test test/release-tag.test.ts",
 		"typecheck": "tsc --noEmit",
 		"lint": "biome check .",
 		"format": "biome format --write ."
